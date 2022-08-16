@@ -1,9 +1,19 @@
+
+Swal.fire({
+     title: 'Error!',
+     text: 'Do you want to continue',
+     icon: 'error',
+     confirmButtonText: 'Cool'
+   });
+
 // Vars
 const carrito = document.querySelector('#carrito');
 const listaCursos = document.querySelector('#lista-cursos');
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciar-carrito'); 
 let articulosCarrito = [];
+
+
 
 // Listeners usuario
 cargarEventListeners();
@@ -17,7 +27,8 @@ function cargarEventListeners() {
 
      // Cuando apretás vaciar el carrito
      vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
-
+     
+     
 }
 
 
@@ -102,4 +113,6 @@ function carritoHTML() {
 // Eliminar los cursos del carrito en el DOM
 function vaciarCarrito() {
           contenedorCarrito.innerHTML = '';
+        
+              
 }
