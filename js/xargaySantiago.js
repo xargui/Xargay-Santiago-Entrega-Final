@@ -1,11 +1,4 @@
 
-Swal.fire({
-     title: 'Error!',
-     text: 'Do you want to continue',
-     icon: 'error',
-     confirmButtonText: 'Cool'
-   });
-
 // Vars
 const carrito = document.querySelector('#carrito');
 const listaCursos = document.querySelector('#lista-cursos');
@@ -42,6 +35,13 @@ function agregarCurso(e) {
      if(e.target.classList.contains('agregar-carrito')) {
           const curso = e.target.parentElement.parentElement;
           leerDatosCurso(curso);
+
+          Swal.fire({
+               title: 'Super!',
+               text: 'Has añadido el curso al carrito de compras',
+               icon: 'success',
+               confirmButtonText: 'Aceptar'
+             })
      }
 }
 
@@ -82,6 +82,15 @@ function eliminarCurso(e) {
           // Eliminar del array del carrito
           articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
 
+          //msj curso eliminado
+         
+          Swal.fire({
+               title: 'Curso eliminado',
+               text: 'No dejes de buscar nuevos cursos',
+               icon: 'warning',
+               confirmButtonText: 'Aceptar'
+             })
+
           carritoHTML();
      }
 }
@@ -106,13 +115,12 @@ function carritoHTML() {
                </td>
           `;
           contenedorCarrito.appendChild(row);
+       
      });
 
 }
 
 // Eliminar los cursos del carrito en el DOM
 function vaciarCarrito() {
-          contenedorCarrito.innerHTML = '';
-        
-              
+          contenedorCarrito.innerHTML = '';    
 }
