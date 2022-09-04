@@ -1,5 +1,5 @@
 
-// Vars
+// Variables
 const carrito = document.querySelector('#carrito');
 const listaCursos = document.querySelector('#lista-cursos');
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
@@ -99,9 +99,9 @@ function eliminarCurso(e) {
 // Mostrar el curso seleccionado en el Carrito
 function carritoHTML() {
 
-     vaciarCarrito();
+          contenedorCarrito.innerHTML = ''
 
-     articulosCarrito.forEach(curso => {
+          articulosCarrito.forEach(curso => {
           const row = document.createElement('tr');
           row.innerHTML = `
                <td>  
@@ -122,5 +122,31 @@ function carritoHTML() {
 
 // Eliminar los cursos del carrito en el DOM
 function vaciarCarrito() {
-          contenedorCarrito.innerHTML = '';    
+          articulosCarrito=[];
+          carritoHTML();
+
+          //msj curso eliminado
+         
+          Swal.fire({
+               title: 'Has vaciado el carrito',
+               text: 'No dejes de buscar nuevos cursos',
+               icon: 'warning',
+               confirmButtonText: 'Aceptar'
+             })
+
 }
+
+//Eliminar HTML
+
+
+//fetch usado obligatoriamente
+
+const date = new Date();
+
+fetch(`http://numbersapi.com/${date.getMonth() + 1}/${date.getDate()}/date?json`)
+    .then(resp => resp.json())
+    .then(function(response){
+        console.log(response.text);
+        document.getElementById('dato-curioso').innerHTML = response.text;
+    })
+    .catch((err) => console.log('Error', err));

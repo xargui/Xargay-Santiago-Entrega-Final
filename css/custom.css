@@ -180,3 +180,14 @@ display: block;
 margin-bottom: 10px;
 text-decoration: none;
 }
+
+#tip-curioso{
+    text-align: center;
+    margin: auto;
+    background-color: #0f0f27;
+    color: white;
+}
+
+#tip-curioso > *{
+    display: inline-block;
+}
